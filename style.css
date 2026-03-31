@@ -1,0 +1,566 @@
+/* 1. Reset cơ bản & Thiết lập Biến màu (Giống tư duy lập trình) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Font chữ hiển thị cực kỳ nét */
+}
+
+:root {
+    --primary-green: #10b981; /* Xanh lá tươi mát của rau củ sạch */
+    --dark-text: #1f2937;     /* Đen xám cho chữ để không bị chói mắt */
+    --light-bg: #f9fafb;      /* Nền xám cực nhạt giúp website sang trọng hơn */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+}
+
+/* 2. Style cho Navbar (Thanh điều hướng) */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Đẩy Logo sang trái, Nút sang phải */
+    align-items: center;            /* Căn giữa theo chiều dọc */
+    padding: 15px 8%;               /* Cách lề 2 bên 8% để web không bị sát mép màn hình */
+    background-color: var(--white);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Bóng đổ siêu mượt ở viền dưới */
+    position: sticky;               /* Bám dính trên cùng khi cuộn chuột */
+    top: 0;
+    z-index: 1000;
+}
+
+/* 3. Style cho Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.logo-highlight {
+    color: var(--primary-green); /* Tạo điểm nhấn bằng màu xanh thương hiệu */
+}
+
+/* 4. Style cho Danh sách Link */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Khoảng cách rộng rãi, thoáng mắt */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-green);
+}
+
+/* 5. Nút Kêu gọi Hành động (Call to Action) */
+.btn-order {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 8px; /* Bo góc nhẹ 8px đang là trend thiết kế 2026 */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-order:hover {
+    background-color: #059669; /* Đổi màu xanh đậm hơn khi di chuột */
+    transform: translateY(-2px); /* Hiệu ứng nảy lên một chút cực kỳ "cuốn" */
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+
+/* Làm mới tiêu đề */
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.highlight {
+    color: #10b981; /* Màu xanh thương hiệu */
+    font-weight: 800;
+}
+
+/* Xử lý 2 nút bấm thay cho link tím */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background: #10b981;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    border: 2px solid #10b981;
+    color: #10b981;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Biến con số thành một thanh thông số chuyên nghiệp */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* GIẢI QUYẾT CHỮ "KỲ CỤC" */
+.hero-image {
+    position: relative; /* Làm gốc để chữ bám vào */
+}
+
+.image-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Nền trắng mờ sang chảnh */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #10b981;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #10b981;
+}
+
+/* Khung màu đỏ (chứa chữ) chiếm 100% */
+    .hero-text {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+/* Phần chữ bên trái: Sửa lỗi chữ quá to */
+.hero-content {
+    flex: 1;               /* Chiếm một nửa không gian */
+}
+
+
+
+.hero-content p {
+    font-size: 1rem;       /* Giảm cỡ chữ xuống cho dễ đọc */
+    color: #4b5563;
+    margin-bottom: 25px;
+    max-width: 500px;      /* Giới hạn chiều rộng của đoạn văn */
+}
+
+/* Khung màu xanh (chứa ảnh banner) tràn rộng ra */
+    .hero-image {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+.hero-image img {
+        width: 100%; /* Ảnh sẽ rộng bằng khung xanh */
+        max-width: 100%; 
+        height: auto; /* Giữ đúng tỷ lệ ảnh, không bị méo */
+        border-radius: 15px; /* Bo góc cho xịn giống ảnh mẫu */
+    }
+
+.menu-section {
+    padding: 80px 8%;
+    background-color: var(--white);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sub-title {
+    color: var(--primary-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Hệ thống lưới Grid - Tự động nhảy dòng khi màn hình nhỏ */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+    border: 1px solid #f3f4f6;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.card-img {
+    position: relative;
+    height: 200px;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giúp ảnh không bị méo */
+}
+
+.tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-green);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.card-body p {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 15px;
+}
+
+.kcal {
+    font-weight: 700;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.btn-select {
+    background: none;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-select:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+
+.services-section {
+    padding: 80px 8%;
+    background-color: #f3f4f6; /* Nền xám nhạt để phân biệt với phần trên */
+}
+
+.services-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Tự nhảy dòng nếu màn hình bé */
+}
+
+.service-box {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #e5e7eb;
+}
+
+.service-box:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-5px);
+}
+
+.service-box .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.service-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--dark-text);
+}
+
+.service-box p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/*Footer*/
+.main-footer {
+    background-color: #111827; /* Màu tối sang trọng */
+    color: white;
+    padding: 60px 8% 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-info p {
+    margin-top: 15px;
+    color: #9ca3af;
+}
+
+.footer-contact h4 {
+    margin-bottom: 20px;
+    color: var(--primary-green);
+}
+
+.footer-contact p {
+    color: #9ca3af;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* Hiệu ứng cuộn trang*/
+html {
+    scroll-behavior: smooth;
+}
+/* 1. Định nghĩa hiệu ứng co giãn */
+@keyframes bump {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); } /* Phình to ra 15% */
+    100% { transform: scale(1); }  /* Thu nhỏ về như cũ */
+}
+
+/* 2. Tạo một cái "nhãn" (class) để dán vào nút khi cần */
+.bump-effect {
+    animation: bump 0.3s ease-out;
+    background-color: #fbbf24 !important; /* Đổi sang màu vàng cam cho nổi bật */
+}
+
+
+.contact-section {
+    padding: 80px 8%;
+    background-color: white;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-green);
+}
+
+.btn-submit {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+}
+
+#hamburger-icon {
+    display: none;
+}
+/* Khi màn hình nhỏ hơn 768px (Điện thoại và Máy tính bảng) */
+@media (max-width: 768px) {
+    /* 1. Ẩn nút Đặt hàng to đùng */
+    .btn-order {
+        display: none !important; 
+    }
+
+    /* 2. Ép Logo và nút 3 gạch nằm tách biệt hai đầu */
+    nav {
+        justify-content: space-between; 
+        padding: 10px 20px;
+    }
+/* Hiện 3 gạch và ẩn menu chữ trên điện thoại */
+    #hamburger-icon {
+        display: block;
+    }
+    /* 3. Chuẩn bị Menu (vẫn ẩn, sẽ hiện khi JS gọi) */
+    .nav-links {
+        display: none; /* Ban đầu ẩn */
+        position: absolute;
+        top: 70px; /* Nằm ngay dưới Header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column; /* Xếp dọc */
+        gap: 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    /* Khi Menu được "kích hoạt" (bằng JS) */
+    .nav-links.active {
+        display: flex; /* Hiện lên */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 15px 0;
+    }
+
+    /* 2. Phần giới thiệu (Hero): Chữ nhỏ lại cho vừa màn hình */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    /* 3. Thực đơn: Thay vì 3 cột thì chuyển thành 1 cột dọc */
+    .menu-grid {
+        grid-template-columns: 1fr; /* 1 cột duy nhất */
+        padding: 0 20px;
+    }
+
+    /* 4. Form liên hệ: Rộng hết cỡ màn hình */
+    .contact-form {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .btn-order {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Footer xếp dọc và canh giữa */
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-info, .footer-contact {
+        width: 100%; /* Chiếm hết chiều ngang */
+    }
+    
+    /* Tránh việc email quá dài làm tràn màn hình */
+    footer a {
+        word-break: break-all; 
+        font-size: 0.9rem;
+    }
+}
+
+.sticky-social {
+    position: fixed;
+    /* Thay vì 20px hay 5px, mình để 0 hoặc số âm nhẹ nếu muốn nó sát hẳn */
+    right: 0px; 
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    /* Thêm padding để nó không bị dính quá chặt vào mép nếu bạn muốn */
+    padding-right: 5px; 
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: auto;
+}
+
+.social-btn img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.social-btn.phone {
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    width: auto;
+    padding: 0 15px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
