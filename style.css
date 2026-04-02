@@ -79,24 +79,66 @@ body {
 }
 
 
-/* Làm mới tiêu đề */
+/* Tổng thể phần Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 8%;
+    gap: 50px;
+    background-color: var(--white);
+    min-height: 80vh;
+}
+
+/* Khối chữ bên trái */
+.hero-text {
+    flex: 1; /* Chiếm 50% không gian */
+    text-align: left; /* Căn trái cho chuyên nghiệp */
+}
+
 .hero-text h1 {
-    font-size: 3rem;
-    line-height: 1.2;
+    font-size: 3.5rem;
+    line-height: 1.1;
     margin: 20px 0;
+    color: var(--dark-text);
 }
 
-.highlight {
-    color: #10b981; /* Màu xanh thương hiệu */
-    font-weight: 800;
+.hero-text .description {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 30px;
+    max-width: 550px;
 }
 
-/* Xử lý 2 nút bấm thay cho link tím */
+/* Khối ảnh bên phải */
+.hero-image {
+    flex: 1; /* Chiếm 50% còn lại */
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    object-fit: cover; /* Cắt ảnh vừa khung không bị méo */
+    border-radius: 30px; /* Bo góc tròn sâu nhìn rất hiện đại */
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
+/* Căn chỉnh lại các nút và chỉ số */
 .hero-actions {
     display: flex;
     gap: 15px;
-    justify-content: center;
-    margin-bottom: 30px;
+    justify-content: flex-start; /* Căn trái theo chữ */
+    margin-bottom: 40px;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
 }
 
 .btn-primary {
@@ -337,14 +379,15 @@ body {
 
 /*Footer*/
 .main-footer {
-    background-color: #111827; /* Màu tối sang trọng */
+    background-color: #0f172a; /* Màu xanh đen sâu cho sang */
     color: white;
-    padding: 60px 8% 20px;
+    padding: 60px 8% 30px;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; /* Chia cột: bên trái rộng hơn bên phải */
+    gap: 50px;
     margin-bottom: 40px;
 }
 
@@ -353,11 +396,17 @@ body {
     color: #9ca3af;
 }
 
+.footer-info .logo {
+    margin-bottom: 20px;
+    display: block;
+    color: white;
+}
+
 .footer-contact h4 {
     margin-bottom: 20px;
     color: var(--primary-green);
+    font-size: 1.2rem;
 }
-
 .footer-contact p {
     color: #9ca3af;
     margin-bottom: 10px;
@@ -433,7 +482,10 @@ html {
 }
 
 #hamburger-icon {
-    display: none;
+    display: none; /* Bình thường sẽ ẩn đi */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-text);
 }
 /* Khi màn hình nhỏ hơn 768px (Điện thoại và Máy tính bảng) */
 @media (max-width: 768px) {
@@ -467,8 +519,9 @@ html {
 
     /* Khi Menu được "kích hoạt" (bằng JS) */
     .nav-links.active {
-        display: flex; /* Hiện lên */
+        display: flex !important; /* Hiện lên */
     }
+
 
     .nav-links li {
         width: 100%;
@@ -481,11 +534,25 @@ html {
         padding: 15px 0;
     }
 
-    /* 2. Phần giới thiệu (Hero): Chữ nhỏ lại cho vừa màn hình */
-    .hero-content h1 {
-        font-size: 2rem;
+    @media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse; /* Đẩy ảnh lên trên hoặc chữ lên trên tùy ý */
+        text-align: center;
+        padding: 40px 5%;
     }
 
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-actions, .hero-stats {
+        justify-content: center;
+    }
+    
+    .hero-image img {
+        height: 300px; /* Thu nhỏ ảnh trên mobile */
+    }
+}
     /* 3. Thực đơn: Thay vì 3 cột thì chuyển thành 1 cột dọc */
     .menu-grid {
         grid-template-columns: 1fr; /* 1 cột duy nhất */
